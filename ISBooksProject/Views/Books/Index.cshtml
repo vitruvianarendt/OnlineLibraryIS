@@ -1,0 +1,55 @@
+﻿@model ISDomain.DTO.BookDto
+
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<div class="container">
+    <div class="d-flex ml-4 mt-5">
+        <form asp-action="Index" method="post">
+            @Html.HiddenFor(m => m.Books)
+            <input asp-for="Date" type="date" class="mt-1 mr-2" />
+            <input asp-for="searchString" type="text" placeholder="Search by Title" class="mt-1 mr-2" />
+            <input asp-for="searchAuthor" type="text" placeholder="Search by Author" class="mt-1 mr-2" />
+            <input type="submit" value="Filter" class="btn btn-light ml-4" />
+        </form>
+
+        <div class="text-center ml-4">
+            <a class="btn btn-success" asp-controller="Books" asp-action="Create">Add New Book</a>
+        </div>
+    </div>
+
+
+    @for (int i = 0; i < Model.Books.Count; i++)
+    {
+        var item = Model.Books[i];
+
+        if (i % 3 == 0)
+        {
+            @:<div class="row">
+        }
+
+
+        <div class="col-md-3 m-4">
+            <div class="card" style="width: 18rem; height: 40rem; background-color: #023618; color: whitesmoke ">
+                <img class="card-img-top" src="@item.CoverImage" style="height: 50%" alt="Book Image" />
+
+                <div class="card-body">
+                    <p class="card-title">@item.BookName - @item.BookAuthor</p>
+                    <p class="card-text">Genre: @item.BookGenre</p>
+                    <h5>Price: @item.BookPrice MKD</h5>
+                </div>
+                <a asp-controller="Books" asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-light">View Details</a>
+
+                <div class="card-footer">
+                    <a asp-action="AddBookToCart" asp-route-id="@item.Id" class="btn btn-success">Add to Cart</a>
+                    <a asp-controller="Books" asp-action="Edit" asp-route-t="@item.Id" class="btn btn-light">Edit</a>
+                    <a asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div> if (i % 3 == 2)
+        {
+            @:</div>
+        }
+     }
+</div>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ticket Management Application</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-color: #D8D8CB;
+        }
+        nav, footer {
+            background-color: #023618;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light border-bottom box-shadow">
+            <div class="container">
+                <a class="navbar-brand text-light font-weight-bold mb-1" asp-area="" asp-controller="Home" asp-action="Index">BookCorner</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Books" asp-action="Index">All Books</a>
+                        </li>
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="ShoppingCart" asp-action="Index">Shopping Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Orders" asp-action="Index">My Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Admin" asp-action="Index">Manager Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-muted" asp-area="" asp-controller="Account" asp-action="ChangeUserRole">Manage User Role</a>
+                    </li>
+                          }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container h-100">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-light text-center">
+        <div class="container">
+            &copy; 2022 - Library Management Application - <a class="text-decoration-none text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

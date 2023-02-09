@@ -1,0 +1,64 @@
+﻿
+@model ISDomain.DomainModels.Book
+@{
+    ViewData["Title"] = "AdminPage";
+}
+
+
+<div class="container text-center mt-5">
+    <br />
+    <hr />
+    <br />
+    <div class="d-flex text-center">
+        <h4>Export All Books</h4>
+        <div class="row ml-3">
+            <a class="btn btn-success" asp-controller="Admin" asp-action="ExportAllBooks">Export</a>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="d-flex text-center">
+        <h4 class="mr-5">Export Books of a Specific Genre</h4>
+        <form asp-action="ExportBooksFromGenre" method="post">
+            <select class="mr-5" asp-for="BookGenre" asp-items="Html.GetEnumSelectList<ISDomain.DomainModels.Genre>()">
+            </select>
+            <span asp-validation-for="BookGenre" class="text-danger"></span>
+            <button type="submit" class="btn btn-success">Export</button>
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+    <div class="d-flex">
+        <h4 class="text-left mr-5">Import Users from Excel File</h4>
+        <form asp-controller="Admin" asp-action="ImportUsers" method="post" enctype="multipart/form-data" class="w-50
+              ">
+            <div class="form-group d-flex">
+                <input type="file" name="file" class="form-control w-100 mr-5" />
+                <button type="submit" class="btn btn-success">Import</button>
+            </div>
+        </form>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+    <div class="d-flex">
+        <h4 class="text-left mr-5">Import Books from Excel File</h4>
+        <form asp-controller="Admin" asp-action="ImportBooks" method="post" enctype="multipart/form-data" class="w-50">
+            <div class="form-group d-flex">
+                <input type="file" name="file" class="form-control w-100 mr-5" />
+                <button type="submit" class="btn btn-success">Import</button>
+            </div>
+        </form>
+    </div>
+
+
+    <br />
+    <hr />
+    <br />
+</div>

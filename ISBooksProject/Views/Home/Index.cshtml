@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .container1 {
+        position: relative;
+        text-align: center;       
+    }
+    .centered1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .btn1 {
+        color: #D8D8CB;
+        background-color: #023618;
+        padding: 30px;
+        font-size: large;
+    }
+</style>
+<div class="text-center" style="margin-top: 80px">
+
+    <div class="container1 container">
+        <img src="https://www.brettonwoodsproject.org/wp-content/uploads/2022/02/books.jpeg" class="h-100 w-100">
+        <div class="centered1"><button class="btn btn1"><a class="nav-link text-light font-weight-normal" asp-area="" asp-controller="Books" asp-action="Index">Hello! Click here to view our books!</a></button></div>
+    </div>
+</div>

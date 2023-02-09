@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-ISBooksProject-DDF244A8-211B-4627-A1B6-D4BE5CCF9565</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bootstrap.Datepicker" Version="1.8.0.1" />
+    <PackageReference Include="ClosedXML" Version="0.96.0" />
+    <PackageReference Include="DevExpress.Data" Version="22.1.3" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="GemBox.Document" Version="35.0.1020" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.23" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Stripe.net" Version="39.121.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ISDomain\ISDomain.csproj" />
+    <ProjectReference Include="..\ISRepository\ISRepository.csproj" />
+    <ProjectReference Include="..\ISServices\ISServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+
+</Project>

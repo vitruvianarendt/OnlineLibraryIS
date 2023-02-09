@@ -1,0 +1,58 @@
+﻿@model ISDomain.DTO.AddToShoppingCartDto
+
+@{ ViewData["Title"] = "Add To Shopping Card";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<h4 class="mt-4">Add Selected Book to Shopping Cart</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 m-auto">
+        <form asp-action="AddBookToCart" method="post">
+            <input type="hidden" asp-for="BookId" />
+            <div class="form-group">
+                <label asp-for="Books.BookName"></label>
+                <input disabled asp-for="Books.BookName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.BookGenre"></label>
+                <input disabled asp-for="Books.BookGenre" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.BookAuthor"></label>
+                <input disabled asp-for="Books.BookAuthor" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.BookPrice"></label>
+                <input disabled asp-for="Books.BookPrice" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.Synopsis"></label>
+                <input disabled asp-for="Books.Synopsis" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.CoverImage"></label>
+                <input disabled asp-for="Books.CoverImage" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Books.BookPrice"></label>
+                <input disabled asp-for="Books.BookPrice" class="form-control" />
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Books.Date"></label>
+                        <input disabled asp-for="Books.Date" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input asp-for="Quantity" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Book" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
